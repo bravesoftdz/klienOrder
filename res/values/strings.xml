@@ -1,0 +1,9 @@
+<resources>
+
+    <string name="app_name">ClientOrder</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">Client Order</string>
+    <string name="slash1">----------------------------------------------------------------------</string>
+
+</resources>
