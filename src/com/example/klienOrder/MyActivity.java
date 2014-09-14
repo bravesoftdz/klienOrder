@@ -8,11 +8,17 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
-
+import java.util.Calendar;
 
 
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
@@ -22,7 +28,12 @@ import android.widget.*;
 
 public class MyActivity extends Activity {
     TableLayout tbLayout;
-    EditText editID, editName, editPrice, editQty, editIP1, editIP2, editIDw, editWn, editIDm, editMn;
+    NotificationManager NM;
+    EditText editID, editName,
+            editPrice, editQty,
+            editIP1, editIP2,
+            editIDw, editWn, editTableNo,
+            editIDm, editMn;
     TextView textView1;
     RadioButton radW, radM, radP;
     int count;
@@ -51,6 +62,8 @@ public class MyActivity extends Activity {
 
         editWn = (EditText) findViewById(R.id.editWName);
         editMn = (EditText) findViewById(R.id.editMName);
+
+        editTableNo = (EditText) findViewById(R.id.editTable);
 
         tbLayout = (TableLayout) findViewById(R.id.tbLayout);
         textView1 = (TextView) findViewById(R.id.textViewLog);
@@ -98,10 +111,14 @@ public class MyActivity extends Activity {
         tr.addView(tvQty);
         tbLayout.addView(tr);
 
-        dataWillBeTransferred.append("/" + tvID.getText().toString());
-        dataWillBeTransferred.append("#" + tvName.getText().toString());
-        dataWillBeTransferred.append("#" + tvPrice.getText().toString());
-        dataWillBeTransferred.append("#" + tvQty.getText().toString());
+        //data yang akan dikirim ke server
+        dataWillBeTransferred.append("/" + editTableNo.getText().toString());//no table
+        dataWillBeTransferred.append("#" + editIDw.getText().toString());//id waiter
+        dataWillBeTransferred.append("#" + editIDm.getText().toString());//id member
+        dataWillBeTransferred.append("#" + tvID.getText().toString());// id produk
+        dataWillBeTransferred.append("#" + tvName.getText().toString());// nama produk
+        dataWillBeTransferred.append("#" + tvPrice.getText().toString());// harga
+        dataWillBeTransferred.append("#" + tvQty.getText().toString());// qty
 
         count++;
 
@@ -236,6 +253,10 @@ public class MyActivity extends Activity {
                                 public void run() {
                                     textView1.setText(textView1.getText()
                                             + "\n" + strReceived);
+                                    if(strReceived.startsWith("NOTIFY")){
+                                        String[] split = strReceived.split("#");
+                                        createNotify(split[1].toString(), split[2].toString(), split[3].toString());
+                                    }
                                 }
                             });
                         }
@@ -308,5 +329,28 @@ public class MyActivity extends Activity {
             e.printStackTrace();
         }
     }
+
+    @SuppressWarnings("deprecation")
+    public void createNotify(String noTable, String idMember, String note){
+        try {
+            String title = "Order Cooking Done";
+            String subject = String.format("Table No. %s", noTable);
+            String body = note;
+            NM=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+            Notification notify=new Notification(android.R.drawable.
+                    stat_notify_more,title,System.currentTimeMillis());
+            PendingIntent pending=PendingIntent.getActivity(
+                    getApplicationContext(),0, new Intent(),0);
+            notify.setLatestEventInfo(getApplicationContext(),subject,body,pending);
+            Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+//        notify.flags = Notification.FLAG_NO_CLEAR;
+            notify.sound = alarmSound;
+            NM.notify(Integer.valueOf(noTable+idMember), notify);
+//            NM.notify(0, notify);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }
 

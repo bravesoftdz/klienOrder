@@ -1,17 +1,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
     <ScrollView
             android:id="@+id/scrollView1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content">
 
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="340dp"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
             <TextView
                     android:layout_width="fill_parent"
@@ -21,13 +20,16 @@
             <EditText
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/editIP1"/>
+                    android:id="@+id/editIP1">
+
+                <requestFocus/>
+            </EditText>
             <Button
                     android:id="@+id/buttonC1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="onClickCon1"
-                    android:text="Connect 1" />
+                    android:text="Connect 1"/>
             <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
@@ -42,34 +44,32 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="onClickCon2"
-                    android:text="Connect 2" />
+                    android:text="Connect 2"/>
 
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="----------"
-                    android:layout_gravity="center"
-                    android:id="@+id/textViewSlash"/>
+            <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"/>
 
             <Button
                     android:id="@+id/button1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="onClickScan"
-                    android:text="Scan" />
+                    android:text="Scan"/>
 
             <RadioGroup
                     android:id="@+id/rdbGp1"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical" >
+                    android:orientation="vertical">
 
                 <RadioButton
                         android:id="@+id/rdbWaiter"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
 
-                        android:text="Waiter" />
+                        android:text="Waiter"/>
 
                 <RadioButton
                         android:id="@+id/rdbMember"
@@ -88,12 +88,10 @@
                         android:checked="true"/>
             </RadioGroup>
 
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="----------------------------------------------------------------------"
-                    android:layout_gravity="center"
-                    android:id="@+id/textViewSlash"/>
+            <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"/>
 
             <TextView
                     android:layout_width="fill_parent"
@@ -114,12 +112,10 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/editWName"/>
 
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="----------------------------------------------------------------------"
-                    android:layout_gravity="center"
-                    android:id="@+id/textViewSlash2"/>
+            <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"/>
 
             <TextView
                     android:layout_width="fill_parent"
@@ -142,26 +138,38 @@
                     android:text=""
                     android:id="@+id/editMName"/>
 
+            <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"/>
             <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:text="----------------------------------------------------------------------"
-                    android:id="@+id/textViewSlash3" android:layout_gravity="center"/>
+                    android:text="Table No."
+                    android:id="@+id/textViewTable"/>
+            <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:inputType="number"
+                    android:id="@+id/editTable"/>
+            <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"/>
 
             <TextView
                     android:id="@+id/textView1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Product ID"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
+                    android:textAppearance="?android:attr/textAppearanceLarge"/>
 
             <EditText
                     android:id="@+id/etIDProd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10" >
-
-                <requestFocus />
+                    android:ems="10">
             </EditText>
 
             <TextView
@@ -169,99 +177,101 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Name"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
+                    android:textAppearance="?android:attr/textAppearanceLarge"/>
 
             <EditText
                     android:id="@+id/etProdName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10" />
+                    android:ems="10"/>
 
             <TextView
                     android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Price"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
+                    android:textAppearance="?android:attr/textAppearanceLarge"/>
 
             <EditText
                     android:id="@+id/etPrice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10" />
+                    android:inputType="number"
+                    android:ems="10"/>
 
             <TextView
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Qty"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
+                    android:textAppearance="?android:attr/textAppearanceLarge"/>
 
             <EditText
                     android:id="@+id/etQty"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10" />
+                    android:inputType="number"
+                    android:ems="10"/>
 
             <Button
                     android:id="@+id/buttonAdd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="onClickAdd"
-                    android:text="Add" />
+                    android:text="Add"/>
 
             <Button
                     android:id="@+id/buttonRemove"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="onClickRem"
-                    android:text="Remove" />
+                    android:text="Remove"/>
 
             <ScrollView
                     android:id="@+id/scrollView3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.33" >
+                    android:layout_weight="0.33">
 
                 <TableLayout
                         android:id="@+id/tbLayout"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" >
+                        android:layout_height="wrap_content">
 
                     <TableRow
                             android:id="@+id/tableRowHeader"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content" >
+                            android:layout_height="wrap_content">
 
                         <TextView
                                 android:id="@+id/textView4"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="No." />
+                                android:text="No."/>
 
                         <TextView
                                 android:id="@+id/textView5"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Prod. ID    " />
+                                android:text="Prod. ID    "/>
 
                         <TextView
                                 android:id="@+id/textView6"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Product Name    " />
+                                android:text="Product Name    "/>
 
                         <TextView
                                 android:id="@+id/textView7"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Price      " />
+                                android:text="Price      "/>
 
                         <TextView
                                 android:id="@+id/textView8"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Qty" />
+                                android:text="Qty"/>
                     </TableRow>
                 </TableLayout>
             </ScrollView>
@@ -271,23 +281,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="onClickSend"
-                    android:text="Send" />
+                    android:text="Send"/>
 
             <ScrollView
                     android:id="@+id/scrollView2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.33" >
+                    android:layout_weight="0.33">
 
                 <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical" >
+                        android:orientation="vertical">
 
                     <TextView
                             android:id="@+id/textViewLog"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"/>
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>
