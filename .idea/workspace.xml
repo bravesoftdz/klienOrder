@@ -36,32 +36,10 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2ea89f5-deb1-4d6c-8969-e2691aa9e4fe" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xxhdpi/ic_launcher.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/ic_stat_name.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi-v11/ic_stat_name.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi-v9/ic_stat_name.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-mdpi/ic_stat_name.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-mdpi-v11/ic_stat_name.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-mdpi-v9/ic_stat_name.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ic_stat_name.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi-v11/ic_stat_name.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi-v9/ic_stat_name.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xxhdpi/ic_stat_name.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xxhdpi-v11/ic_stat_name.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xxhdpi-v9/ic_stat_name.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/example/klienOrder/ClientService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-hdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/res/drawable-hdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-mdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/res/drawable-mdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-xhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
+    <list default="true" id="d2ea89f5-deb1-4d6c-8969-e2691aa9e4fe" name="Default" comment="add service">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/klienOrder/ClientService.java" afterPath="$PROJECT_DIR$/src/com/example/klienOrder/ClientService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/klienOrder/MyActivity.java" afterPath="$PROJECT_DIR$/src/com/example/klienOrder/MyActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../zxing-2.3.0/android/android.iml" afterPath="$PROJECT_DIR$/../zxing-2.3.0/android/android.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/klienOrder.iml" afterPath="$PROJECT_DIR$/klienOrder.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/main.xml" afterPath="$PROJECT_DIR$/res/layout/main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project.properties" afterPath="$PROJECT_DIR$/project.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="KlienOrder.iws" />
@@ -145,8 +123,8 @@
       <file leaf-file-name="MyActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/klienOrder/MyActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2244" max-vertical-offset="3043">
-              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1496" max-vertical-offset="3468">
+              <caret line="114" column="73" selection-start-line="114" selection-start-column="73" selection-end-line="114" selection-end-column="73" />
               <folding>
                 <element signature="method#onActivityResult#0;class#MyActivity#0" expanded="false" />
               </folding>
@@ -157,14 +135,24 @@
       <file leaf-file-name="ClientService.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/klienOrder/ClientService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.720339" vertical-offset="1785" max-vertical-offset="2975">
-              <caret line="162" column="42" selection-start-line="162" selection-start-column="42" selection-end-line="162" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.4463277" vertical-offset="2239" max-vertical-offset="2975">
+              <caret line="184" column="52" selection-start-line="184" selection-start-column="52" selection-end-line="184" selection-end-column="52" />
               <folding>
                 <element signature="e#5938#6219#0" expanded="true" />
                 <element signature="e#6200#6201#0" expanded="true" />
-                <element signature="e#7513#7514#0" expanded="true" />
-                <element signature="e#7554#7555#0" expanded="true" />
+                <element signature="e#7515#7516#0" expanded="true" />
+                <element signature="e#7556#7557#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -224,10 +212,13 @@
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/res/layout/main.xml" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/src/com/example/klienOrder/ClientService.java" />
         <option value="$PROJECT_DIR$/src/com/example/klienOrder/MyActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/example/klienOrder/ClientService.java" />
       </list>
     </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState />
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
@@ -394,7 +385,7 @@
     <property name="recentsLimit" value="5" />
     <property name="FullScreen" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="192.168.56.101:5555" />
@@ -637,7 +628,15 @@
       <created>1410669511394</created>
       <updated>1410669511394</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add service">
+      <created>1411275353132</created>
+      <updated>1411275353132</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add service">
+      <created>1411275508808</created>
+      <updated>1411275508808</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -656,7 +655,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46678025" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3280142" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -697,11 +696,20 @@
     </option>
     <MESSAGE value="first commit" />
     <MESSAGE value="add notification bar" />
-    <option name="LAST_COMMIT_MESSAGE" value="add notification bar" />
+    <MESSAGE value="add service" />
+    <option name="LAST_COMMIT_MESSAGE" value="add service" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="10" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/example/klienOrder/ClientService.java</url>
+          <line>116</line>
+          <properties />
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="16" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -709,23 +717,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="170">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/klienOrder/MyActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4148" max-vertical-offset="4386">
-          <caret line="289" column="0" selection-start-line="289" selection-start-column="0" selection-end-line="289" selection-end-column="0" />
-          <folding>
-            <element signature="method#onActivityResult#0;class#MyActivity#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/klienOrder/IntentResult.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1360">
@@ -908,13 +899,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.24926686" vertical-offset="680" max-vertical-offset="16881">
-          <caret line="35" column="34" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/adt-bundle-windows-x86-20140702/sdk/platforms/android-16/data/res/drawable-ldpi/stat_notify_more.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1064,10 +1048,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../zxing-2.3.0/android/android.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41689372" vertical-offset="153" max-vertical-offset="3757">
+          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.40113" vertical-offset="1445" max-vertical-offset="20026">
+          <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/klienOrder/MyActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2244" max-vertical-offset="3043">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1496" max-vertical-offset="3468">
+          <caret line="114" column="73" selection-start-line="114" selection-start-column="73" selection-end-line="114" selection-end-column="73" />
           <folding>
             <element signature="method#onActivityResult#0;class#MyActivity#0" expanded="false" />
           </folding>
@@ -1076,13 +1084,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/klienOrder/ClientService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.720339" vertical-offset="1785" max-vertical-offset="2975">
-          <caret line="162" column="42" selection-start-line="162" selection-start-column="42" selection-end-line="162" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.4463277" vertical-offset="2239" max-vertical-offset="2975">
+          <caret line="184" column="52" selection-start-line="184" selection-start-column="52" selection-end-line="184" selection-end-column="52" />
           <folding>
             <element signature="e#5938#6219#0" expanded="true" />
             <element signature="e#6200#6201#0" expanded="true" />
-            <element signature="e#7513#7514#0" expanded="true" />
-            <element signature="e#7554#7555#0" expanded="true" />
+            <element signature="e#7515#7516#0" expanded="true" />
+            <element signature="e#7556#7557#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1146,7 +1154,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

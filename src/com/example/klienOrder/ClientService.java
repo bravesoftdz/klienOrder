@@ -182,7 +182,7 @@ public class ClientService extends Service {
         public void createNotify(String noTable, String idMember, String idProduct, String note) {
             try {
                 COUNTER++;
-                String title = "Order Cooking Done";
+                String title = "Order Cooking Status";
                 String subject = String.format("Table No. %s", noTable);
                 String body = note;
                 NM=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);

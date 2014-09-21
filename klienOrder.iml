@@ -16,7 +16,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="core-2.2" level="project" />
-    <orderEntry type="module" module-name="android" />
+    <orderEntry type="module" module-name="android" exported="" />
   </component>
   <component name="org.twodividedbyzero.idea.findbugs">
     <option name="_basePreferences">
