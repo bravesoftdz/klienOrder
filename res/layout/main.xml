@@ -28,23 +28,23 @@
                     android:id="@+id/buttonC1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onClick="onClickCon1"
-                    android:text="Connect 1"/>
-            <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:text="IP 2"
-                    android:id="@+id/textViewIP2"/>
-            <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/editIP2"/>
-            <Button
-                    android:id="@+id/buttonC2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:onClick="onClickCon2"
-                    android:text="Connect 2"/>
+                    android:onClick="onClickCon"
+                    android:text="Connect"/>
+            <!--<TextView-->
+                    <!--android:layout_width="fill_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="IP 2"-->
+                    <!--android:id="@+id/textViewIP2"/>-->
+            <!--<EditText-->
+                    <!--android:layout_width="fill_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/editIP2"/>-->
+            <!--<Button-->
+                    <!--android:id="@+id/buttonC2"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:onClick="onClickCon2"-->
+                    <!--android:text="Connect 2"/>-->
 
             <View
                     android:layout_width="fill_parent"

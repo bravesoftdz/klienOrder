@@ -1,29 +1,20 @@
 package com.example.klienOrder;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.net.InetAddress;
-import java.net.Socket;
-import java.util.Calendar;
-
-
 import android.app.Activity;
-import android.app.Notification;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
+import android.content.ComponentName;
 import android.content.Intent;
-import android.media.RingtoneManager;
-import android.net.Uri;
+import android.content.ServiceConnection;
 import android.os.Bundle;
-import android.os.Handler;
+import android.os.IBinder;
 import android.view.Menu;
 import android.view.View;
-import android.widget.*;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MyActivity extends Activity {
@@ -31,20 +22,19 @@ public class MyActivity extends Activity {
     NotificationManager NM;
     EditText editID, editName,
             editPrice, editQty,
-            editIP1, editIP2,
+            editIP1,
             editIDw, editWn, editTableNo,
             editIDm, editMn;
     TextView textView1;
     RadioButton radW, radM, radP;
     int count;
-    static final int SERVER_PORT = 5000;
 
-    Handler handler = new Handler();
-    static Socket socket;
 
     StringBuffer dataWillBeTransferred;
 
-    PrintWriter printWriter;
+
+    boolean mBounded;
+    ClientService mServer;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,7 +45,7 @@ public class MyActivity extends Activity {
         editPrice = (EditText) findViewById(R.id.etPrice);
         editQty = (EditText) findViewById(R.id.etQty);
         editIP1 = (EditText) findViewById(R.id.editIP1);
-        editIP2 = (EditText) findViewById(R.id.editIP2);
+//        editIP2 = (EditText) findViewById(R.id.editIP2);
 
         editIDm = (EditText) findViewById(R.id.editMID);
         editIDw = (EditText) findViewById(R.id.editWID);
@@ -124,7 +114,7 @@ public class MyActivity extends Activity {
 
     }
 
-    public void onClickRem(View v){
+    public void onClickRem(View v) {
         tbLayout.removeAllViews();
         count = 1;
         TextView tvNo = new TextView(getApplicationContext());
@@ -144,15 +134,17 @@ public class MyActivity extends Activity {
         tr.addView(tvPrice);
         tr.addView(tvQty);
         tbLayout.addView(tr);
+        dataWillBeTransferred.setLength(0);
     }
 
     public void onClickSend(View view) {
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                printWriter.println(dataWillBeTransferred.toString());
-            }
-        });
+        try {
+            mServer.onClickSend(dataWillBeTransferred.toString());
+        } catch (Exception e) {
+            Toast.makeText(getBaseContext(),
+                    e.getMessage(),
+                    Toast.LENGTH_LONG).show();
+        }
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
@@ -163,14 +155,14 @@ public class MyActivity extends Activity {
                 if (resultCode == RESULT_OK) {
                     String contents = intent.getStringExtra("SCAN_RESULT");
                     String[] split = contents.split("#");
-                    if(radP.isChecked()){
+                    if (radP.isChecked()) {
                         editID.setText(split[0].toString());
                         editName.setText(split[1].toString());
                         editPrice.setText(split[2].toString());
-                    }else if(radM.isChecked()){
+                    } else if (radM.isChecked()) {
                         editIDm.setText(split[0].toString());
                         editMn.setText(split[1].toString());
-                    }else if(radW.isChecked()){
+                    } else if (radW.isChecked()) {
                         editIDw.setText(split[0].toString());
                         editWn.setText(split[1].toString());
                     }
@@ -184,11 +176,15 @@ public class MyActivity extends Activity {
         }
     }
 
-    public void onClickCon1(View v){
+    public void onClickCon(View v) {
         try {
-            String ip1 = editIP1.getText().toString();
-            Thread clientThread = new Thread(new ClientThread(ip1));
-            clientThread.start();
+            String ip = editIP1.getText().toString();
+
+            Intent service = new Intent(this, ClientService.class);
+            service.putExtra("IP_ADDRESS", ip);
+            startService(service);
+
+            bindService(service, mConnection, BIND_AUTO_CREATE);
         } catch (Exception e) {
             Toast.makeText(getBaseContext(),
                     e.getMessage(),
@@ -196,161 +192,23 @@ public class MyActivity extends Activity {
         }
     }
 
-    public void onClickCon2(View v){
+    ServiceConnection mConnection = new ServiceConnection() {
 
-        try {
-            String ip2 = editIP2.getText().toString();
-            Thread clientThread = new Thread(new ClientThread(ip2));
-            clientThread.start();
-        } catch (Exception e) {
-            Toast.makeText(getBaseContext(),
-                    e.getMessage(),
-                    Toast.LENGTH_LONG).show();
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            Toast.makeText(getBaseContext(), "Service is disconnected", Toast.LENGTH_LONG).show();
+            mBounded = false;
+            mServer = null;
         }
 
-
-    }
-
-    public class ClientThread implements Runnable {
-
-        private String ipAddress;
-
-        public ClientThread(String ipAddress) {
-            this.ipAddress = ipAddress;
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            Toast.makeText(getBaseContext(), "Service is connected", Toast.LENGTH_LONG).show();
+            mBounded = true;
+            ClientService.LocalBinder mLocalBinder = (ClientService.LocalBinder) service;
+            mServer = mLocalBinder.getClientServiceInstance();
         }
+    };
 
-        public void run() {
-            try {
-                InetAddress serverAddr = InetAddress.getByName(ipAddress);
-
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        textView1.setText(textView1.getText()
-                                + "Connecting to the server");
-                    }
-                });
-
-                socket = new Socket(serverAddr, SERVER_PORT);
-                try {
-                    printWriter = new PrintWriter(new BufferedWriter(
-                            new OutputStreamWriter(socket.getOutputStream())),
-                            true);
-
-                    //---get an InputStream object to read from the server---
-                    BufferedReader br = new BufferedReader(
-                            new InputStreamReader(socket.getInputStream()));
-
-                    try {
-                        //---read all incoming data terminated with a \n
-                        // char---
-                        String line = null;
-                        while ((line = br.readLine()) != null) {
-                            final String strReceived = line;
-
-                            handler.post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    textView1.setText(textView1.getText()
-                                            + "\n" + strReceived);
-                                    if(strReceived.startsWith("NOTIFY")){
-                                        String[] split = strReceived.split("#");
-                                        createNotify(split[1].toString(), split[2].toString(), split[3].toString());
-                                    }
-                                }
-                            });
-                        }
-
-                        //---disconnected from the server---
-                        handler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                textView1.setText(textView1.getText()
-                                        + "\n" + "Client disconnected");
-                            }
-                        });
-
-                    } catch (Exception e) {
-                        final String error = e.getLocalizedMessage();
-                        handler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                textView1.setText(textView1.getText() + "\n" + error);
-                            }
-                        });
-                    }
-
-                } catch (Exception e) {
-                    final String error = e.getLocalizedMessage();
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            textView1.setText(textView1.getText() + "\n" + error);
-                        }
-                    });
-                }
-
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        textView1.setText(textView1.getText()
-                                + "\n" + "Connection closed.");
-                    }
-                });
-
-            } catch (Exception e) {
-                final String error = e.getLocalizedMessage();
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        textView1.setText(textView1.getText() + "\n" + error);
-                    }
-                });
-            }
-        }
-    }
-
-//	@Override
-//	protected void onStart() {
-//		super.onStart();
-//		Thread clientThread = new Thread(new ClientThread());
-//		clientThread.start();
-//	}
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        try {
-            if(socket != null){
-                socket.shutdownInput();
-                socket.close();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @SuppressWarnings("deprecation")
-    public void createNotify(String noTable, String idMember, String note){
-        try {
-            String title = "Order Cooking Done";
-            String subject = String.format("Table No. %s", noTable);
-            String body = note;
-            NM=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
-            Notification notify=new Notification(android.R.drawable.
-                    stat_notify_more,title,System.currentTimeMillis());
-            PendingIntent pending=PendingIntent.getActivity(
-                    getApplicationContext(),0, new Intent(),0);
-            notify.setLatestEventInfo(getApplicationContext(),subject,body,pending);
-            Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-//        notify.flags = Notification.FLAG_NO_CLEAR;
-            notify.sound = alarmSound;
-            NM.notify(Integer.valueOf(noTable+idMember), notify);
-//            NM.notify(0, notify);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
 }
 
